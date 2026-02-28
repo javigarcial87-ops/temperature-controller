@@ -9,6 +9,9 @@ import HistoryList from "./components/HistoryList"
 export default function App() {
   const [temperature, setTemperature] = useState(20)
   const [history, setHistory] = useState([])
+  
+
+
 
   const addToHistory = (temp) =>{
     const time = new Date().toLocaleTimeString()
@@ -16,15 +19,19 @@ export default function App() {
   }
 
   const increaseTemperature = () =>{
+   if(temperature <40) {
     const newTemp = temperature + 1
     setTemperature(newTemp)
     addToHistory(newTemp)
+    }
   }
 
   const decreaseTemperature = () =>{
+   if (temperature > 0) { 
     const newTemp = temperature - 1
     setTemperature(newTemp)
     addToHistory(newTemp)
+    }
   }
 
   const resetTemperature = () => {
